@@ -1,4 +1,4 @@
-package Jar;
+package Jar.lombok;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,8 +1,7 @@
-package Jar;
+package Jar.lombok;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
 @RequiredArgsConstructor
 //@RequiredArgsConstructor 은 필요한 생성자를 자동으로 만들어준다.
