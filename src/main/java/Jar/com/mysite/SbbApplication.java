@@ -1,4 +1,4 @@
-package Jar.com.mysite.sbb;
+package Jar.com.mysite;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
