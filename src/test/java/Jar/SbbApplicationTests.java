@@ -21,8 +21,9 @@ class SbbApplicationTests {
 	@Test
 	public void testJpa() {
 
-		Question q = this.questionRepository.findBySubject("sbb가 무엇인가요?");
-		assertEquals(1, q.getId());
+		Question q = this.questionRepository.findBySubjectAndContent("sbb가 무엇인가요?", "sbb에 대해서 알고 싶습니다.");
+		assertEquals(1,q.getId());
+
 	}
 
 

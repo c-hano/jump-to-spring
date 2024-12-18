@@ -10,6 +10,7 @@ public interface QuestionRepository extends JpaRepository<Question, Integer> {
     //Question 엔티티의 기본키가 Integer임을 이와 같이 추가로 지정해야한다.
     Question findBySubject(String subject);
 
+    Question findBySubjectAndContent(String subjecty, String content);
 
 }
 
