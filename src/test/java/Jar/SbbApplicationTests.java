@@ -21,7 +21,7 @@ class SbbApplicationTests {
 	public void testJpa() {
 
 		List<Question> all = this.questionRepository.findAll();
-		assertEquals(2, all.size());
+		assertEquals(3, all.size());
 
 		Question q = all.get(0);
 		assertEquals("sbb가 무엇인가요?", q.getSubject());
