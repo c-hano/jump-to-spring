@@ -1,4 +1,4 @@
-package Jar.lombok;
+package Jar.com.mysite.sbb;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,5 +1,6 @@
-package Jar.com.mysite.sbb;
+package Jar.com.mysite.question;
 
+import Jar.com.mysite.answer.Answer;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

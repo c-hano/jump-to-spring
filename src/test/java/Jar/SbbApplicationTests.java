@@ -1,15 +1,14 @@
 package Jar;
 
-import Jar.com.mysite.sbb.Answer;
-import Jar.com.mysite.sbb.AnswerRepository;
-import Jar.com.mysite.sbb.Question;
-import Jar.com.mysite.sbb.QuestionRepository;
+import Jar.com.mysite.answer.Answer;
+import Jar.com.mysite.answer.AnswerRepository;
+import Jar.com.mysite.question.Question;
+import Jar.com.mysite.question.QuestionRepository;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
