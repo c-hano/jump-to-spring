@@ -8,4 +8,8 @@ public interface QuestionRepository extends JpaRepository<Question, Integer> {
     //관리 작업을 좀 더 편리하게 처리할 수 있다.
     //JpaRepository<Question, Integer>은 Question 엔티티로 리포지터리를 생성한다는 의미이다.
     //Question 엔티티의 기본키가 Integer임을 이와 같이 추가로 지정해야한다.
+    Question findBySubject(String subject);
+
+
 }
+
