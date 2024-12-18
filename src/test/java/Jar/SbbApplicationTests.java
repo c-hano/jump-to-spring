@@ -1,5 +1,7 @@
 package Jar;
 
+import Jar.com.mysite.sbb.Answer;
+import Jar.com.mysite.sbb.AnswerRepository;
 import Jar.com.mysite.sbb.Question;
 import Jar.com.mysite.sbb.QuestionRepository;
 import org.junit.jupiter.api.Test;
@@ -19,14 +21,21 @@ class SbbApplicationTests {
 	@Autowired
 	private QuestionRepository questionRepository;
 
+	@Autowired
+	private AnswerRepository answerRepository;
+
 	@Test
 	public void testJpa() {
-	assertEquals(2, this.questionRepository.count());
-		Optional<Question> oq = this.questionRepository.findById(1);
-		assertTrue(oq.isPresent());
+		Optional<Question> oq = this.questionRepository.findById(2);
 		Question q = oq.get();
-		this.questionRepository.delete(q);
-		assertEquals(1, this.questionRepository.count());
+
+		Answer a = new Answer();
+		a.setContent("네 자동으로 생성됩니다.");
+		a.setQuestion(q);
+		//어떤 질문의 답변인지 알기 위해서 Question객체가 필요하다.
+		a.setCreateDate(LocalDateTime.now());
+		this.answerRepository.save(a);
+
 	}
 
 
