@@ -1,8 +1,10 @@
 package Jar.com.mysite.question;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,8 +36,8 @@ public class QuestionController {
         return "question_detail";
     }
 
-    @GetMapping(value="/create")
-    public String questionCreate(){
+    @GetMapping(value = "/create")
+    public String questionCreate() {
         return "question_form";
     }
 
@@ -44,5 +46,14 @@ public class QuestionController {
                                  @RequestParam(value = "content") String content) {
         this.questionService.create(subject, content);
         return "redirect:/question/list"; // 질문 저장 후 질문 목록으로 이동
+    }
+
+    @PostMapping(value = "/create")
+    public String questionCreate(@Valid QuestionForm questionForm, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "question_form";
+        }
+        this.questionService.create(questionForm.getSubject(), questionForm.getContent());
+        return "redirect:/question/list";
     }
 }
