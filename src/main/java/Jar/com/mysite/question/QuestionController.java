@@ -37,7 +37,7 @@ public class QuestionController {
     }
 
     @GetMapping(value = "/create")
-    public String questionCreate() {
+    public String questionCreate(QuestionForm questionForm) {
         return "question_form";
     }
 
