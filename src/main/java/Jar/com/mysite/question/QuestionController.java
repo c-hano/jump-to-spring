@@ -36,21 +36,16 @@ public class QuestionController {
         return "question_detail";
     }
 
-    @GetMapping(value = "/create")
-    public String questionCreate(QuestionForm questionForm) {
+    @GetMapping("/create")
+    public String questionCreate(Model model) {
+        model.addAttribute("questionForm", new QuestionForm());
         return "question_form";
     }
 
     @PostMapping(value = "/create")
-    public String questionCreate(@RequestParam(value = "subject") String subject,
-                                 @RequestParam(value = "content") String content) {
-        this.questionService.create(subject, content);
-        return "redirect:/question/list"; // 질문 저장 후 질문 목록으로 이동
-    }
-
-    @PostMapping(value = "/create")
-    public String questionCreate(@Valid QuestionForm questionForm, BindingResult bindingResult) {
+    public String questionCreate(@Valid @ModelAttribute QuestionForm questionForm, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
+            model.addAttribute("questionForm", questionForm);
             return "question_form";
         }
         this.questionService.create(questionForm.getSubject(), questionForm.getContent());
