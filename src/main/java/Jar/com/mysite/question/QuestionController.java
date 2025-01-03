@@ -1,5 +1,6 @@
 package Jar.com.mysite.question;
 
+import Jar.com.mysite.answer.AnswerForm;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -30,7 +31,7 @@ public class QuestionController {
     @GetMapping(value = "/detail/{id}")
     //@RequestMapping("/question") 을 클래스 위에 선언함으로써 해당 에노테이션은
     //@GetMapping("/question/detail/{id}") 와 같다.
-    public String detail(Model model, @PathVariable("id") Integer id) {
+    public String detail(Model model, @PathVariable("id") Integer id, AnswerForm answerForm) {
         Question question = this.questionService.getQuestion(id);
         model.addAttribute("question", question);
         return "question_detail";
